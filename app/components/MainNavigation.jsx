@@ -8,6 +8,7 @@ export default function MainNavigation() {
         <li className="nav-item">
           <NavLink to="/">Accueil</NavLink>
         </li>
+
         <li className="nav-item">
           <NavLink to="/contacts">Mes contacts</NavLink>
         </li>

@@ -10,10 +10,12 @@ export default function NouveauContact() {
           <label htmlFor="nom">Nom</label>
           <input type="text" id="nom" name="nom" required />
         </p>
+
         <p>
           <label htmlFor="courriel">Courriel</label>
           <input type="text" id="courriel" name="courriel" required />
         </p>
+
         <div className="form-actions">
           <button>Ajouter un contact</button>
         </div>
