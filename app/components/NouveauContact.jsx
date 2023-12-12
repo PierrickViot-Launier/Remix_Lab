@@ -5,6 +5,7 @@ export default function NouveauContact() {
   return (
     <>
       <h1>Nouveau Contact</h1>
+
       <form method="post" id="contact-form">
         <p>
           <label htmlFor="nom">Nom</label>
