@@ -29,15 +29,42 @@ export default function ContactsPage() {
 export async function loader() {
   const contacts = await getStoredContacts();
 
+  // if (!contacts || contacts.length === 0) {
+  //   throw json(
+  //     { message: "Aucun contact pour le moment" },
+  //     {
+  //       status: 404,
+
+  //       statusText: "Not Found",
+  //     }
+  //   );
+  // }
+
   return contacts;
 }
+
+// export function CatchBoundary() {
+//   const reponse = useCatch();
+
+//   const message = reponse.data?.message;
+
+//   return (
+//     <main>
+//       <h1>Une erreur est survenu</h1>
+
+//       <p>{message}</p>
+//     </main>
+//   );
+// }
 
 export async function action({ request }) {
   const formData = await request.formData();
 
   const contactData = Object.fromEntries(formData);
 
-  if (contactData.courriel.trim().length < 5) {
+  const emailPattern = /^[^s@]+@[^s@]+\.[^s@]+$/;
+
+  if (!emailPattern.test(contactData.courriel)) {
     return { message: "Veuillez entrez un courriel valide" };
   }
 
