@@ -62,7 +62,7 @@ export async function action({ request }) {
 
   const contactData = Object.fromEntries(formData);
 
-  const emailPattern = /^[^s@]+@[^s@]+\.[^s@]+$/;
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!emailPattern.test(contactData.courriel)) {
     return { message: "Veuillez entrez un courriel valide" };
