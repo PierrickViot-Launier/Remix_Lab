@@ -1,4 +1,4 @@
-h1 {
+h2 {
     text-align: center;
     color: var(--color-primary-10);
 }
@@ -53,11 +53,19 @@ h1 {
   }
   
   .form-actions button:hover {
-    background-color: var(--color-primary-200);
+    background-color: var(--color-primary-300);
   }
   
   .form-actions button:disabled {
     background-color: var(--color-primary-200);
     color: var(--color-primary-300);
     cursor: not-allowed;
+  }
+
+  .message {
+    text-align: center;
+    color: var(--color-primary-10);
+    font-weight: bold;
+    animation: fade-blur-in 1s ease-out forwards;
+    transition: all 0.3s ease-out;
   }

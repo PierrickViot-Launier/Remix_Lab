@@ -1,12 +1,21 @@
 import React from "react";
 import styles from "./NouveauContact.css";
+import { Form, useNavigation, useActionData } from "@remix-run/react";
 
 export default function NouveauContact() {
+  const navigation = useNavigation();
+
+  const data = useActionData();
+
+  const isSubmitting = navigation.state === "submitting";
+
   return (
     <>
-      <h1>Nouveau Contact</h1>
+      <h2>Nouveau Contact</h2>
 
-      <form method="post" id="contact-form">
+      <Form method="post" id="contact-form">
+        {data?.message && <p className="message">{data.message}</p>}
+
         <p>
           <label htmlFor="nom">Nom</label>
           <input type="text" id="nom" name="nom" required />
@@ -18,9 +27,11 @@ export default function NouveauContact() {
         </p>
 
         <div className="form-actions">
-          <button>Ajouter un contact</button>
+          <button disabled={isSubmitting}>
+            {isSubmitting ? "Ajout en cours..." : "Ajouter un contact"}
+          </button>
         </div>
-      </form>
+      </Form>
     </>
   );
 }
