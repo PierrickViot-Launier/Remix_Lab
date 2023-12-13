@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./ListeContacts.css";
+import { Link } from "@remix-run/react";
 
 export default function ListeContacts({ contacts }) {
   return (
@@ -12,17 +13,19 @@ export default function ListeContacts({ contacts }) {
         <ul id="contact-list">
           {contacts.map((contact, index) => (
             <li key={contact.id} className="contact">
-              <article>
-                <header>
-                  <ul className="contact-meta">
-                    <li>Contact #{index + 1}</li>
-                  </ul>
+              <Link to={`/contacts/${contact.id}`}>
+                <article>
+                  <header>
+                    <ul className="contact-meta">
+                      <li>Contact #{index + 1}</li>
+                    </ul>
 
-                  <h2 className="nom">{contact.nom}</h2>
-                </header>
+                    <h2 className="nom">{contact.nom}</h2>
+                  </header>
 
-                <p>{contact.courriel}</p>
-              </article>
+                  <p>{contact.courriel}</p>
+                </article>
+              </Link>
             </li>
           ))}
         </ul>
