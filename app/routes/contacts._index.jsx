@@ -29,33 +29,8 @@ export default function ContactsPage() {
 export async function loader() {
   const contacts = await getStoredContacts();
 
-  // if (!contacts || contacts.length === 0) {
-  //   throw json(
-  //     { message: "Aucun contact pour le moment" },
-  //     {
-  //       status: 404,
-
-  //       statusText: "Not Found",
-  //     }
-  //   );
-  // }
-
   return contacts;
 }
-
-// export function CatchBoundary() {
-//   const reponse = useCatch();
-
-//   const message = reponse.data?.message;
-
-//   return (
-//     <main>
-//       <h1>Une erreur est survenu</h1>
-
-//       <p>{message}</p>
-//     </main>
-//   );
-// }
 
 export async function action({ request }) {
   const formData = await request.formData();
